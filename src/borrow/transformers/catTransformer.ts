@@ -1,12 +1,12 @@
 import { flatten } from 'lodash';
 import { Dictionary } from 'ts-essentials';
 
-import { handleEvents, FullEventInfo } from '@oasisdex/spock-utils/dist/transformers/common';
+import { handleEvents, FullEventInfo } from '@yodaplus/spock-utils/dist/transformers/common';
 import {
   getExtractorName,
   PersistedLog,
   SimpleProcessorDefinition,
-} from '@oasisdex/spock-utils/dist/extractors/rawEventDataExtractor';
+} from '@yodaplus/spock-utils/dist/extractors/rawEventDataExtractor';
 import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import { LocalServices } from '@oasisdex/spock-etl/dist/services/types';
 import { normalizeAddressDefinition } from '../../utils';

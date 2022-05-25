@@ -1,0 +1,43 @@
+version: '3.8'
+
+volumes:
+  postgres-data:
+
+x-common-env: &common-env
+  VL_DB_DATABASE: postgres
+  VL_DB_USER: postgres
+  VL_DB_PASSWORD: ${POSTGRES_PASSWORD}
+  VL_DB_HOST: db
+  VL_DB_PORT: 5432
+  VL_CHAIN_HOST: ${JSON_RPC_URL}
+  VL_CHAIN_NAME: ${NETWORK_NAME}
+  VL_LOGGING_LEVEL: 3
+
+services:
+  db:
+    image: postgres:10.6
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+  nginx:
+    depends_on:
+      - app
+    ports:
+      - '80:80'
+      - '443:443'
+
+  app:
+    depends_on:
+      - etl
+    environment:
+      <<: *common-env
+    command: ./scripts/start_api.sh
+
+  etl:
+    depends_on:
+      - db
+    environment:
+      <<: *common-env
+    command: ./scripts/start_etl.sh

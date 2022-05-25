@@ -1,0 +1,27 @@
+version: '3.8'
+
+x-aws-cloudformation:
+  Resources:
+    DbService:
+      Properties:
+        DeploymentConfiguration:
+          MaximumPercent: 100
+          MinimumHealthyPercent: 0
+
+    EtlService:
+      Properties:
+        DeploymentConfiguration:
+          MaximumPercent: 100
+          MinimumHealthyPercent: 0
+
+    NginxTCP80TargetGroup:
+      Properties:
+        HealthCheckPath: /v1/console
+        Matcher:
+          HttpCode: 200-499
+
+    NginxTCP443TargetGroup:
+      Properties:
+        HealthCheckPath: /v1/console
+        Matcher:
+          HttpCode: 200-499

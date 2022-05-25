@@ -2,7 +2,7 @@ import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import {
   getExtractorName,
   SimpleProcessorDefinition,
-} from '@oasisdex/spock-utils/dist/extractors/rawEventDataExtractor';
+} from '@yodaplus/spock-utils/dist/extractors/rawEventDataExtractor';
 
 import { flatten, max, min } from 'lodash';
 import { getGasFee } from '../../utils/getGasFee';
@@ -22,7 +22,6 @@ import { getOpenCdpTransformerName } from './cdpManagerTransformer';
 import { getAuctions2TransformerName } from './dogTransformer';
 import { getVatCombineTransformerName, getVatMoveTransformerName } from './vatTransformer';
 import { Event } from 'src/types/history';
-import { multiplyHistoryTransformerName } from './multiplyHistoryTransformer';
 import { isDefined } from '../../utils/isDefined';
 
 export const eventEnhancerTransformerName = `event-enhancer-transformer-v2`;
@@ -137,7 +136,6 @@ export const eventEnhancerGasPrice: (
     transformerDependencies: [
       getVatCombineTransformerName(vat),
       ...managers.map(getOpenCdpTransformerName),
-      multiplyHistoryTransformerName,
     ],
     startingBlock: vat.startingBlock,
     transform: async (services, _logs) => {

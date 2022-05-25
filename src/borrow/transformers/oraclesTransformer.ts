@@ -1,10 +1,10 @@
 import { flatten } from 'lodash';
 
-import { handleEvents, FullEventInfo } from '@oasisdex/spock-utils/dist/transformers/common';
+import { handleEvents, FullEventInfo } from '@yodaplus/spock-utils/dist/transformers/common';
 import {
   PersistedLog,
   SimpleProcessorDefinition,
-} from '@oasisdex/spock-utils/dist/extractors/rawEventDataExtractor';
+} from '@yodaplus/spock-utils/dist/extractors/rawEventDataExtractor';
 
 import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import { LocalServices } from '@oasisdex/spock-etl/dist/services/types';
@@ -131,10 +131,7 @@ export const oraclesTransformer: (
 
     return {
       name: getOracleTransformerName(_deps),
-      dependencies: [
-        getCustomExtractorNameBasedOnTopicIgnoreConflicts('oracle'),
-        getCustomExtractorNameBasedOnTopicIgnoreConflicts('lp-oracle'),
-      ],
+      dependencies: [getCustomExtractorNameBasedOnTopicIgnoreConflicts('oracle')],
       startingBlock: deps.startingBlock,
       transform: async (services, logs) => {
         const logsFromOSM = flatten(logs).filter(

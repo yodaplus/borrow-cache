@@ -7,12 +7,12 @@ import {
   FullNoteEventInfo,
   handleDsNoteEvents,
   DsNoteHandlers,
-} from '@oasisdex/spock-utils/dist/transformers/common';
+} from '@yodaplus/spock-utils/dist/transformers/common';
 import {
   getExtractorName,
   PersistedLog,
   SimpleProcessorDefinition,
-} from '@oasisdex/spock-utils/dist/extractors/rawEventDataExtractor';
+} from '@yodaplus/spock-utils/dist/extractors/rawEventDataExtractor';
 import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import { LocalServices } from '@oasisdex/spock-etl/dist/services/types';
 import { getAddressesFromConfig, normalizeAddressDefinition } from '../../utils';
@@ -70,16 +70,16 @@ const handleNewCdp = async (
       vault_creator,
       timestamp,
       log_index,
-      tx_id, 
+      tx_id,
       block_id,
       cdp_id
     ) VALUES (
-      \${kind}, 
-      \${urn}, 
-      \${vault_creator}, 
-      \${timestamp}, 
+      \${kind},
+      \${urn},
+      \${vault_creator},
+      \${timestamp},
       \${log_index},
-      \${tx_id}, 
+      \${tx_id},
       \${block_id},
       \${cdp_id}
     )

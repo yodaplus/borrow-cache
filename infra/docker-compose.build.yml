@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+
+  etl:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile

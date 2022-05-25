@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: 135135176603.dkr.ecr.ap-south-1.amazonaws.com/borrow-cache-nginx:latest
+
+  app:
+    image: 135135176603.dkr.ecr.ap-south-1.amazonaws.com/borrow-cache-app:latest
+
+  etl:
+    image: 135135176603.dkr.ecr.ap-south-1.amazonaws.com/borrow-cache-app:latest

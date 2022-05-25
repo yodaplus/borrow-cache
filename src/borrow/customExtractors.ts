@@ -5,9 +5,9 @@ import {
   extractRawLogsOnTopic,
   getLogsBasedOnTopics,
   getPersistedLogsByTopic,
-} from '@oasisdex/spock-utils/dist/extractors/rawEventBasedOnTopicExtractor';
+} from '@yodaplus/spock-utils/dist/extractors/rawEventBasedOnTopicExtractor';
 import { timer } from '@oasisdex/spock-etl/dist/utils/timer';
-import { getOrCreateTx } from '@oasisdex/spock-utils/dist/extractors/common';
+import { getOrCreateTx } from '@yodaplus/spock-utils/dist/extractors/common';
 import { ethers } from 'ethers';
 import { groupBy, uniqBy } from 'lodash';
 import { Log } from 'ethers/providers';
@@ -87,19 +87,19 @@ async function extractRawLogsOnTopicIgnoreConflicts(
         log.transactionHash !== undefined && log.blockHash !== undefined,
     )
     .filter(log => !ignoredAddresses.includes(log.address.toLowerCase()));
-  const blocksByHash = groupBy(blocks, 'hash');
+  const blocksByNumber = groupBy(blocks, 'number');
   const allTxs = uniqBy(
-    filteredLogs.map(l => ({ txHash: l.transactionHash, blockHash: l.blockHash })),
+    filteredLogs.map(l => ({ txHash: l.transactionHash, blockNumber: l.blockNumber })),
     'txHash',
   );
   const allStoredTxs = await Promise.all(
-    allTxs.map(tx => getOrCreateTx(services, tx.txHash, blocksByHash[tx.blockHash][0])),
+    allTxs.map(tx => getOrCreateTx(services, tx.txHash, blocksByNumber[tx.blockNumber][0])),
   );
   const allStoredTxsByTxHash = groupBy(allStoredTxs, 'hash');
   const logsToInsert = (
     await Promise.all(
       filteredLogs.map(async log => {
-        const _block = blocksByHash[log.blockHash];
+        const _block = blocksByNumber[log.blockNumber];
         if (!_block) {
           return;
         }

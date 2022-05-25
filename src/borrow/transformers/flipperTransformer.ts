@@ -5,9 +5,9 @@ import {
   handleDsNoteEvents,
   FullNoteEventInfo,
   FullEventInfo,
-} from '@oasisdex/spock-utils/dist/transformers/common';
-import { PersistedLog } from '@oasisdex/spock-utils/dist/extractors/rawEventDataExtractor';
-import { getExtractorName as getExtractorNameBasedOnTopic } from '@oasisdex/spock-utils/dist/extractors/rawEventBasedOnTopicExtractor';
+} from '@yodaplus/spock-utils/dist/transformers/common';
+import { PersistedLog } from '@yodaplus/spock-utils/dist/extractors/rawEventDataExtractor';
+import { getExtractorName as getExtractorNameBasedOnTopic } from '@yodaplus/spock-utils/dist/extractors/rawEventBasedOnTopicExtractor';
 import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import { LocalServices } from '@oasisdex/spock-etl/dist/services/types';
 import { getExtractorNameBasedOnDSNoteTopic } from '../customExtractors';

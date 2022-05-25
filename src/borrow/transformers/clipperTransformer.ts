@@ -1,7 +1,7 @@
 import { flatten } from 'lodash';
 
-import { handleEvents, FullEventInfo } from '@oasisdex/spock-utils/dist/transformers/common';
-import { PersistedLog } from '@oasisdex/spock-utils/dist/extractors/rawEventDataExtractor';
+import { handleEvents, FullEventInfo } from '@yodaplus/spock-utils/dist/transformers/common';
+import { PersistedLog } from '@yodaplus/spock-utils/dist/extractors/rawEventDataExtractor';
 import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import { LocalServices } from '@oasisdex/spock-etl/dist/services/types';
 import { Dictionary } from 'ts-essentials';

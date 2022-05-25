@@ -21,7 +21,9 @@
     "migrate": "TS_NODE_TRANSPILE_ONLY=true node -r ./loadenv.js ./node_modules/@oasisdex/spock-etl/dist/bin/migrate.js ./src/config.ts",
     "start-api": "TS_NODE_TRANSPILE_ONLY=true DEBUG=apicache node -r ./loadenv.js ./node_modules/@oasisdex/spock-graphql-api/dist/index.js ./src/config.ts",
     "build": "tsc --build .",
-    "clean": "rm -rf lib"
+    "clean": "rm -rf lib",
+    "docker": "docker compose   -f infra/docker-compose.base.yml   -f infra/docker-compose.build.yml -f infra/docker-compose.dev.yml  --project-name borrow-cache   --project-directory ./",
+    "ecs": "docker compose   -f infra/docker-compose.base.yml   -f infra/docker-compose.tags.yml -f infra/docker-compose.ecs.yml -f infra/docker-compose.ecs-staging.yml  --project-name borrow-cache   --project-directory ./"
   },
   "devDependencies": {
     "@types/chai": "^4.2.15",
@@ -44,7 +46,7 @@
     "@oasisdex/spock-etl": "^0.1.5",
     "@oasisdex/spock-graphql-api": "^0.1.2",
     "@oasisdex/spock-test-utils": "^0.1.1",
-    "@oasisdex/spock-utils": "^0.1.0",
+    "@yodaplus/spock-utils": "^0.1.0",
     "@oasisdex/spock-validation": "^0.1.0",
     "abi-decoder": "^1.2.0",
     "bignumber.js": "^8.0.2",

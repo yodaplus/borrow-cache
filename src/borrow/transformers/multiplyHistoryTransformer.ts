@@ -2,7 +2,7 @@ import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import {
   getExtractorName,
   SimpleProcessorDefinition,
-} from '@oasisdex/spock-utils/dist/extractors/rawEventDataExtractor';
+} from '@yodaplus/spock-utils/dist/extractors/rawEventDataExtractor';
 import { flatten, groupBy, max, min } from 'lodash';
 import { Aggregated, MPAAggregatedEvent, MultiplyEvent } from '../../types/multiplyHistory';
 import { Event } from '../../types/history';
@@ -111,7 +111,7 @@ export const multiplyHistoryTransformer: (
                   await parseMultiplyEvent(multiplyEvent, events, {
                     getTokenPrecision: address => getTokenPrecision(services, address),
                     getGasFee: hash => getGasFee(services, hash),
-                    getDaiTransfer: (txId) => getDaiTransfer(services, txId)
+                    getDaiTransfer: txId => getDaiTransfer(services, txId),
                   }),
                 ];
               }

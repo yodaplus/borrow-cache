@@ -4,11 +4,11 @@ import {
   handleDsNoteEvents,
   FullNoteEventInfo,
   DsNoteHandlers,
-} from '@oasisdex/spock-utils/dist/transformers/common';
+} from '@yodaplus/spock-utils/dist/transformers/common';
 import {
   getExtractorName,
   SimpleProcessorDefinition,
-} from '@oasisdex/spock-utils/dist/extractors/rawEventDataExtractor';
+} from '@yodaplus/spock-utils/dist/extractors/rawEventDataExtractor';
 import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import { LocalServices } from '@oasisdex/spock-etl/dist/services/types';
 import { normalizeAddressDefinition } from '../../utils';
@@ -43,10 +43,10 @@ const vatNoteHandlers: DsNoteHandlers = {
     await services.tx.none(
       `
                 INSERT INTO vat.fold(
-                    i, rate, u, 
+                    i, rate, u,
                     log_index, tx_id, block_id, timestamp
                 ) VALUES (
-                    \${i}, \${rate}, \${u}, 
+                    \${i}, \${rate}, \${u},
                     \${log_index}, \${tx_id}, \${block_id}, \${timestamp}
                 );`,
       values,
@@ -80,7 +80,7 @@ const vatNoteHandlers: DsNoteHandlers = {
             INSERT INTO vat.frob(
                 dart, dink, ilk, u, v, w, timestamp, log_index, tx_id, block_id
             ) VALUES (
-                \${dart}, \${dink}, \${ilk}, \${u}, \${v}, \${w}, \${timestamp}, 
+                \${dart}, \${dink}, \${ilk}, \${u}, \${v}, \${w}, \${timestamp},
                 \${log_index}, \${tx_id}, \${block_id}
             );`,
       values,
@@ -182,8 +182,8 @@ export const vatCombineTransformer: (
       const rates = flatten(
         await services.tx.multi<Rate>(
           `
-        select i ilk, sum(rate) rate 
-        from vat.fold f 
+        select i ilk, sum(rate) rate
+        from vat.fold f
         where block_id < ${minBlock}
         group by i;
         `,
@@ -277,8 +277,8 @@ const moveEventsHandlers: DsNoteHandlers = {
 
     const folds = await services.tx.one(
       `
-      SELECT COALESCE(sum(f.rate), 0) AS rate 
-        FROM vat.fold f 
+      SELECT COALESCE(sum(f.rate), 0) AS rate
+        FROM vat.fold f
           WHERE f.i = '${parseBytes32String(note.params.ilk)}'
             AND (
               f.block_id < ${log.block_id}
@@ -376,7 +376,7 @@ const rawMoveHandlers: DsNoteHandlers = {
                     ilk, src, dst, dink, dart,
                     log_index, tx_id, block_id, timestamp
                 ) VALUES (
-                    \${ilk}, \${src}, \${dst}, \${dink}, \${dart},  
+                    \${ilk}, \${src}, \${dst}, \${dink}, \${dart},
                     \${log_index}, \${tx_id}, \${block_id}, \${timestamp}
                 );`,
       values,
@@ -412,7 +412,7 @@ const rawMoveHandlers: DsNoteHandlers = {
                     i, u, v, w, dink, dart,
                     log_index, tx_id, block_id, timestamp
                 ) VALUES (
-                    \${i}, \${u}, \${v}, \${w}, \${dink}, \${dart},  
+                    \${i}, \${u}, \${v}, \${w}, \${dink}, \${dart},
                     \${log_index}, \${tx_id}, \${block_id}, \${timestamp}
                 );`,
       values,

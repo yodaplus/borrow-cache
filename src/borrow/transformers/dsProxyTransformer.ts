@@ -1,7 +1,7 @@
 import { BlockTransformer } from '@oasisdex/spock-etl/dist/processors/types';
 import { LocalServices } from '@oasisdex/spock-etl/dist/services/types';
-import { PersistedLog } from '@oasisdex/spock-utils/dist/extractors/rawEventBasedOnTopicExtractor';
-import { FullEventInfo, handleEvents } from '@oasisdex/spock-utils/dist/transformers/common';
+import { PersistedLog } from '@yodaplus/spock-utils/dist/extractors/rawEventBasedOnTopicExtractor';
+import { FullEventInfo, handleEvents } from '@yodaplus/spock-utils/dist/transformers/common';
 import { flatten } from 'lodash';
 import { Dictionary } from 'ts-essentials';
 import { getCustomExtractorNameBasedOnTopicIgnoreConflicts } from '../customExtractors';

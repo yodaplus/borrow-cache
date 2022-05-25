@@ -156,11 +156,6 @@
   dependencies:
     ts-essentials "^6.0.2"
 
-"@oasisdex/spock-utils@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@oasisdex/spock-utils/-/spock-utils-0.1.0.tgz"
-  integrity sha512-TXneyLAQE51GPXtwLB7C7IYpt+ESmPHsYLQOgw07YBe7b+zQLURCEDPBElnN3fJmgAmlpwroXt3BTvltCExV+Q==
-
 "@oasisdex/spock-validation@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@oasisdex/spock-validation/-/spock-validation-0.1.0.tgz"
@@ -482,6 +477,11 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
+
+"@yodaplus/spock-utils@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@yodaplus/spock-utils/-/spock-utils-0.1.0.tgz#55816cb9c24522dff2946533eb536d0930692e60"
+  integrity sha512-PjH6LSedFHpXs1N6HBv6f3YIBjcV5f/OB3OgRfqNniS2h84bEyGZnrnrCSTyCaheUCzkfnU/31YHMdedREGeww==
 
 abi-decoder@^1.2.0:
   version "1.2.0"
