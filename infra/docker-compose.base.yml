@@ -6,7 +6,6 @@ volumes:
 x-common-env: &common-env
   VL_DB_DATABASE: postgres
   VL_DB_USER: postgres
-  VL_DB_PASSWORD: ${POSTGRES_PASSWORD}
   VL_DB_HOST: db
   VL_DB_PORT: 5432
   VL_CHAIN_HOST: ${JSON_RPC_URL}

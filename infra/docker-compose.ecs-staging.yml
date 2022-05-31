@@ -1,7 +1,22 @@
 version: '3.8'
 
+services:
+  app:
+    environment:
+      AWS_SECRET_ID: borrow-cache-apothem-secret
+
+  etl:
+    environment:
+      AWS_SECRET_ID: borrow-cache-apothem-secret
+
 x-aws-cloudformation:
   Resources:
+    Secret:
+      Properties:
+        Name: 'borrow-cache-apothem-secret'
+        SecretString: '{"POSTGRES_PASSWORD": ${POSTGRES_PASSWORD}}'
+      Type: AWS::SecretsManager::Secret
+
     NginxTCP443Listener:
       Properties:
         Certificates:

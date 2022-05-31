@@ -4,7 +4,13 @@ services:
   app:
     ports:
       - '3001:3001'
+    environment:
+      VL_DB_PASSWORD: ${POSTGRES_PASSWORD}
 
-  app:
+  etl:
+    environment:
+      VL_DB_PASSWORD: ${POSTGRES_PASSWORD}
+
+  db:
     ports:
       - '5432:5432'

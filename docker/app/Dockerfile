@@ -1,5 +1,12 @@
 FROM node:12
 
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
+
+RUN apt-get update
+RUN apt-get -y install jq
+
 EXPOSE 3001
 
 COPY package.json /app/package.json
