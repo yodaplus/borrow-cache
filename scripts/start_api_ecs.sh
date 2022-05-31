@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-./scripts/set_secrets.sh
-./scripts/start_api.sh
+source ./scripts/set_secrets.sh
+source ./scripts/start_api.sh
