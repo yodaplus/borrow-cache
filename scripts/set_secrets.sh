@@ -6,17 +6,8 @@ export AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS_JSON | jq -r '.SecretAccessKey'
 export AWS_SESSION_TOKEN=$(echo $CREDENTIALS_JSON | jq -r '.Token')
 export AWS_DEFAULT_REGION=ap-south-1
 
-echo CREDENTIALS_JSON $CREDENTIALS_JSON
-echo AWS_SECRET_ID $AWS_SECRET_ID
-
 SECRET_JSON_RESPONSE=$(aws secretsmanager get-secret-value --secret-id $AWS_SECRET_ID)
-
-echo SECRET_JSON_RESPONSE $SECRET_JSON_RESPONSE
 
 SECRET_JSON=$(echo $SECRET_JSON_RESPONSE | jq -r '.SecretString')
 
-echo SECRET_JSON $SECRET_JSON
-
 export VL_DB_PASSWORD=$(echo $SECRET_JSON | jq -r '.POSTGRES_PASSWORD')
-
-echo VL_DB_PASSWORD $VL_DB_PASSWORD
