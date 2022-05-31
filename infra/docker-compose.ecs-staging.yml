@@ -14,7 +14,7 @@ x-aws-cloudformation:
     Secret:
       Properties:
         Name: 'borrow-cache-apothem-secret'
-        SecretString: '{"POSTGRES_PASSWORD": ${POSTGRES_PASSWORD}}'
+        SecretString: '{"POSTGRES_PASSWORD": "${POSTGRES_PASSWORD}"}'
       Type: AWS::SecretsManager::Secret
 
     NginxTCP443Listener:
