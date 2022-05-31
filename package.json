@@ -23,7 +23,7 @@
     "build": "tsc --build .",
     "clean": "rm -rf lib",
     "docker": "docker compose   -f infra/docker-compose.base.yml   -f infra/docker-compose.build.yml -f infra/docker-compose.dev.yml  --project-name borrow-cache   --project-directory ./",
-    "ecs": "docker compose   -f infra/docker-compose.base.yml   -f infra/docker-compose.tags.yml -f infra/docker-compose.ecs.yml -f infra/docker-compose.ecs-staging.yml  --project-name borrow-cache   --project-directory ./"
+    "ecs": "docker compose   -f infra/docker-compose.base.yml   -f infra/docker-compose.tags.yml -f infra/docker-compose.ecs.yml -f infra/docker-compose.ecs-staging.yml  --project-name borrow-cache-apothem   --project-directory ./"
   },
   "devDependencies": {
     "@types/chai": "^4.2.15",
