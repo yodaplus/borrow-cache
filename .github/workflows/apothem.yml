@@ -88,6 +88,6 @@ jobs:
           135135176603.dkr.ecr.ap-south-1.amazonaws.com
       - name: Deploy to ECS
         run: >
-          docker compose -f infra/docker-compose.base.yml -f infra/docker-compose.tags.yml -f
-          infra/docker-compose.ecs.yml -f infra/docker-compose.ecs-staging.yml --project-name
+          docker compose -f infra/docker-compose.base.yml -f infra/docker-compose.tags-apothem.yml
+          -f infra/docker-compose.ecs.yml -f infra/docker-compose.ecs-apothem.yml --project-name
           borrow-cache-apothem --project-directory ./ up || true

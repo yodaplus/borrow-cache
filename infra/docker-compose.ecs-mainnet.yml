@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app:
+    environment:
+      AWS_SECRET_ID: borrow-cache-mainnet-secret
+
+  etl:
+    environment:
+      AWS_SECRET_ID: borrow-cache-mainnet-secret
+
+x-aws-cloudformation:
+  Resources:
+    Secret:
+      Properties:
+        Name: 'borrow-cache-mainnet-secret'
+        SecretString: '{"POSTGRES_PASSWORD": "${POSTGRES_PASSWORD}"}'
+      Type: AWS::SecretsManager::Secret
+
+    NginxTCP443Listener:
+      Properties:
+        Certificates:
+          - CertificateArn: 'arn:aws:acm:ap-south-1:135135176603:certificate/e0518fcf-3e0f-46ad-9719-698521a373c5'
+        Protocol: HTTPS

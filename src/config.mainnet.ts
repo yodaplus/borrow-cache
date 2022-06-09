@@ -43,30 +43,30 @@ import {
 
 const mainnetAddresses = require('./addresses/mainnet.json');
 
-const GENESIS = Number(process.env.GENESIS) || 32462661;
+const GENESIS = Number(process.env.GENESIS) || 46100101;
 
 const vat = {
-  address: '0x9a786475F517a43d1136c44453be367A39115c5C',
+  address: '0xADD756B7a1384c48339Fe0f951405Ce03a3C9889',
   startingBlock: GENESIS,
 };
 
 const cdpManagers = [
   {
-    address: '0xEA12F7a2CAEB5f975c8d410D1Ec13B3398E252AA',
+    address: '0x6F11c919c57E9558495E2f842aDD9841c2680559',
     startingBlock: GENESIS,
   },
 ];
 
 const cats = [
   {
-    address: '0xDd0632443141bb5DBAfA3E2Dba0040A1FE9Be2B6',
+    address: '0x492f8426e57E44a64d015E50182Cf742Da74E99F',
     startingBlock: GENESIS,
   },
 ];
 
 const dogs = [
   {
-    address: '0x3c11784b740E3f9286e71D3B323ff70574aCB3bE',
+    address: '0x1d1f15a43C738c435c12d78a5ACCa1C435261A19',
     startingBlock: GENESIS,
   },
 ];

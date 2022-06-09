@@ -41,7 +41,7 @@ import {
   eventEnhancerTransformerEthPrice,
 } from './borrow/transformers/eventEnhancer';
 
-const mainnetAddresses = require('./addresses/mainnet.json');
+const apothemAddresses = require('./addresses/apothem.json');
 
 const GENESIS = Number(process.env.GENESIS) || 32462661;
 
@@ -109,10 +109,10 @@ const flipperNotes: AbiInfo[] = [
 ];
 
 const addresses = {
-  ...mainnetAddresses,
+  ...apothemAddresses,
 };
 
-const oracles = getOraclesAddresses(mainnetAddresses).map(description => ({
+const oracles = getOraclesAddresses(apothemAddresses).map(description => ({
   ...description,
   startingBlock: GENESIS,
 }));
