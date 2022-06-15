@@ -164,4 +164,11 @@ export const config: UserProvidedSpockConfig = {
   },
   addresses,
   onStart: async services => {},
+  blockGenerator: {
+    batch: 50,
+  },
+  extractorWorker: {
+    batch: 400,
+    reorgBuffer: 0,
+  },
 };
