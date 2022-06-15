@@ -101,7 +101,7 @@ const handlers = (token: string) => ({
     );
     const [price, nextPrice] = [
       new BigNumber(event.params.val).div(wad),
-      await getNextPriceFromStorage(services, log, block.number),
+      new BigNumber(event.params.val).div(wad),
     ];
     await savePrices(services, log, token, price, nextPrice, block.timestamp);
   },
