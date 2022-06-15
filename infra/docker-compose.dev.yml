@@ -10,6 +10,8 @@ services:
   etl:
     environment:
       VL_DB_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - .:/app
 
   db:
     ports:
