@@ -15,14 +15,25 @@ Oasis Borrow. To build most up to date live data project utilizes
 
 Requirements:
 
-- Docker
-- node.js (version 12.\*)
+- Docker. Refer official manual as per OS. Eg : [ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
+- node.js (version 12.\*) 
+```bash
+   sudo apt install npm
+   node -v
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
 - yarn
+```
+yarn -v
+npm install --global yarn
+yarn -v
+```
 
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/OasisDEX/oasis-borrow-cache.git
+   git clone git@github.com:yodaplus/borrow-cache.git
    ```
 
 2. Install dependencies
@@ -32,9 +43,10 @@ Requirements:
 3. Create `.env.local` in the root of the project with content to set/override environment
    variables. In order to create borrow history you will need to supply an url to jsonrpc node.
 
-   Here you may also override `VL_CHAIN_NAME=mainnet`. You may set it to `mainnet` or `kovan` or
-   `localnet` but remember to also provide proper jsonrpc node (taken from
-   [alchemy](https://www.alchemy.com/) or [infura](https://infura.io/)).
+   Here you may also override `VL_CHAIN_NAME=apothem`. You may set it to `xinfin-mainnet` or `apothem` or
+   `localnet`.
+   
+   Do remember to also provide proper jsonrpc node for [apothem](https://rpc-apothem.xinfin.yodaplus.net) or [xinfin-mainnet](https://rpc.xinfin.yodaplus.net).
 
    ```
    VL_CHAIN_HOST= <HERE PASTE AN URL TO JSONRPC NODE FROM WHERE YOU WISH TO FETCH BLOCKCHAIN DATA>
@@ -47,7 +59,7 @@ Requirements:
    ```bash
    ./scripts/dev.sh
    ```
-5. Run migrations
+5. Run migrations again. (Until dev.sh issue with migrations running before db setup is resolved)
    ```
    yarn migrate
    ```
