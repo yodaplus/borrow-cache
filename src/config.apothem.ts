@@ -43,30 +43,30 @@ import {
 
 const apothemAddresses = require('./addresses/apothem.json');
 
-const GENESIS = Number(process.env.GENESIS) || 32462661;
+const GENESIS = Number(process.env.GENESIS) || 37912533;
 
 const vat = {
-  address: '0x9a786475F517a43d1136c44453be367A39115c5C',
+  address: "0xb57CD7aD9334306218CcF04Ae89fCA3A39552c9D",
   startingBlock: GENESIS,
 };
 
 const cdpManagers = [
   {
-    address: '0xEA12F7a2CAEB5f975c8d410D1Ec13B3398E252AA',
+    address: "0x6014c177492C0E4175c6E58E80858e5ba7CC2e97",
     startingBlock: GENESIS,
   },
 ];
 
 const cats = [
   {
-    address: '0xDd0632443141bb5DBAfA3E2Dba0040A1FE9Be2B6',
+    address: "0xB78D0F060153269A0756cD6CA7a9DD7156fA8E9e",
     startingBlock: GENESIS,
   },
 ];
 
 const dogs = [
   {
-    address: '0x3c11784b740E3f9286e71D3B323ff70574aCB3bE',
+    address: "0x55574d7b899b52e82B95E11e1AF6b9EEdcCc3fa0",
     startingBlock: GENESIS,
   },
 ];
