@@ -90,4 +90,4 @@ jobs:
         run: >
           docker compose -f infra/docker-compose.base.yml -f infra/docker-compose.tags-apothem.yml
           -f infra/docker-compose.ecs.yml -f infra/docker-compose.ecs-apothem.yml --project-name
-          borrow-cache-apothem --project-directory ./ up || true
+          usxd-borrow-cache-apothem --project-directory ./ up || true

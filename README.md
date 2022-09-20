@@ -33,7 +33,7 @@ yarn -v
 1. Clone the repository
 
    ```bash
-   git clone git@github.com:yodaplus/borrow-cache.git
+   git clone git@github.com:yodaplus/usxd-borrow-cache.git
    ```
 
 2. Install dependencies
