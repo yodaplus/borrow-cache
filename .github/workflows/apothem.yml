@@ -47,7 +47,7 @@ jobs:
           context: .
           file: docker/nginx/Dockerfile
           push: true
-          tags: 135135176603.dkr.ecr.ap-south-1.amazonaws.com/borrow-cache-nginx:latest
+          tags: 135135176603.dkr.ecr.ap-south-1.amazonaws.com/usxd-borrow-cache-nginx:latest
           cache-from: type=local,src=/tmp/.buildx-cache-nginx
           cache-to: type=local,dest=/tmp/.buildx-cache-nginx-new,mode=max
 
@@ -57,7 +57,7 @@ jobs:
           context: .
           file: docker/app/Dockerfile
           push: true
-          tags: 135135176603.dkr.ecr.ap-south-1.amazonaws.com/borrow-cache-app:latest
+          tags: 135135176603.dkr.ecr.ap-south-1.amazonaws.com/usxd-borrow-cache-app:latest
           cache-from: type=local,src=/tmp/.buildx-cache-app
           cache-to: type=local,dest=/tmp/.buildx-cache-app-new,mode=max
 
